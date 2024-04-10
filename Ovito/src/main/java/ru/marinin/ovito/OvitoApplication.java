@@ -1,4 +1,4 @@
-package ru.marinin.Ovito;
+package ru.marinin.ovito;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
