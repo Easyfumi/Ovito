@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Блог сайта</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    <div th:each="element : ${product}" class="alert alert-info mt-2">
+            <img class="img" width="100" height="100px" th:src="@{'/images/'+${element.images.get(0).id}}" /><br><br>
+        <img class="img" width="100" height="100px" th:src="@{'/images/'+${element.images.get(1).id}}" /><br><br>
+        <img class="img" width="100" height="100px" th:src="@{'/images/'+${element.images.get(2).id}}" /><br><br>
+        <h3 th:text="${element.title}"/>
+        <p th:text="${element.description}"/>
+        <p th:text="${element.price}"/>
+        <p th:text="${element.city}"/>
+        <p th:text="${element.author}"/>
+        <a th:href ="'/products/'+${element.id} + '/edit'" class="btn btn-warning">Редактировать</a><br><br>
+        <form th:action="'/products/' + ${element.id} + '/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
+    </div>
+</div>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редактирование статьи</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Редактирование товара</h1>
+    <div th:each="element : ${product}">
+        <form method="post">
+            <input type="text" th:value="${element.title}" name="title" placeholder="Введите название статьи" class="form-control"><br>
+            <input type="text" th:value="${element.description}" name="description" placeholder="Введите описание" class="form-control"><br>
+            <input type="text" th:value="${element.price}" name="price" placeholder="Введите цену" class="form-control"><br>
+            <input type="text" th:value="${element.city}" name="city" placeholder="Введите город" class="form-control"><br>
+            <input type="text" th:value="${element.author}" name="author" placeholder="Введите автора" class="form-control"><br>
+            <button type="submit" class="btn btn-success">Обновить товар</button>
+        </form>
+    </div>
+</div>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+
+</html>

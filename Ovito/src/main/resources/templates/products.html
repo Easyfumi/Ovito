@@ -13,12 +13,13 @@
 <div class="container mt-5">
     <h1>Все товары</h1>
     <div th:each="element : ${products}" class="alert alert-info mt-2">
+        <img class="img" width="100" height="100px" th:src="@{'/images/'+${element.previewImageId}}" /><br><br>
         <h3 th:text="${element.title}"/>
         <p th:text="${element.description}"/>
         <p th:text="${element.price}"/>
         <p th:text="${element.city}"/>
         <p th:text="${element.author}"/>
-<!--        <a th:href ="'/products/'+${element.id}" class="btn btn-warning">Детальнее</a>-->
+        <a th:href ="'/products/'+${element.id}" class="btn btn-warning">Детальнее</a>
     </div>
 </div>
 
