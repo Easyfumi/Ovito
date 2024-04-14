@@ -1,12 +1,12 @@
 <configuration>
 
-    <property name="HOME_LOG" value="C:\Users\zik15\Desktop\PetProjects\Ovito\Ovito\app.log"/>
+    <property name="HOME_LOG" value="/Users/zik15/Desktop/PetProjects/Ovito/Ovito/logs/app.log"/>
 
     <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${HOME_LOG}</file>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>C:\Users\zik15\Desktop\PetProjects\Ovito\Ovito\app.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <fileNamePattern>/Users/zik15/Desktop/PetProjects/Ovito/Ovito/logs/app.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
             <!-- each archived file, size max 10MB -->
             <maxFileSize>10MB</maxFileSize>
             <!-- total size of all archive files, if total size > 20GB, it will delete old archived file -->
@@ -20,7 +20,7 @@
         </encoder>
     </appender>
 
-    <logger name="ru.marinin.Ovito" level="debug" additivity="false">
+    <logger name="ru.marinin.ovito" level="debug" additivity="false">
         <appender-ref ref="FILE-ROLLING"/>
     </logger>
 

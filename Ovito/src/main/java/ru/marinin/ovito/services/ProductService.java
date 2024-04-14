@@ -1,26 +1,27 @@
 package ru.marinin.ovito.services;
 
 import lombok.RequiredArgsConstructor;
+
+
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.marinin.ovito.models.Image;
 import ru.marinin.ovito.models.Product;
-import ru.marinin.ovito.repository.ImageRepository;
+
 import ru.marinin.ovito.repository.ProductRepository;
 
 import java.io.IOException;
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Optional;
+
+
 
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
-    private final ImageRepository imageRepository;
 
     public List<Product> listProducts(String title) {
         if (title != null) {
