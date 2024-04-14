@@ -10,7 +10,9 @@ import ru.marinin.ovito.models.Product;
 import ru.marinin.ovito.repository.ProductRepository;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -19,8 +21,12 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public List<Product> listProducts(String title) {
-        if (title != null) productRepository.findByTitle(title);
-        return productRepository.findAll();
+        if (title != null) {
+            return productRepository.findByTitle(title);
+        } else {
+            return productRepository.findAll();
+        }
+
     }
 
     public void saveProduct(String title, String description, String price, String city, String author, MultipartFile file1, MultipartFile file2, MultipartFile file3) throws IOException {

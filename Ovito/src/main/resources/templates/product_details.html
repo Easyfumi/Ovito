@@ -8,21 +8,31 @@
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
-
 <div class="container mt-5">
-    <div th:each="element : ${product}" class="alert alert-info mt-2">
-            <img class="img" width="100" height="100px" th:src="@{'/images/'+${element.images.get(0).id}}" /><br><br>
-        <img class="img" width="100" height="100px" th:src="@{'/images/'+${element.images.get(1).id}}" /><br><br>
-        <img class="img" width="100" height="100px" th:src="@{'/images/'+${element.images.get(2).id}}" /><br><br>
-        <h3 th:text="${element.title}"/>
-        <p th:text="${element.description}"/>
-        <p th:text="${element.price}"/>
-        <p th:text="${element.city}"/>
-        <p th:text="${element.author}"/>
-        <a th:href ="'/products/'+${element.id} + '/edit'" class="btn btn-warning">Редактировать</a><br><br>
-        <form th:action="'/products/' + ${element.id} + '/remove'" method="post">
-            <button class="btn btn-warning" type="submit">Удалить</button>
-        </form>
+    <div th:each="element : ${product}" class="alert alert-primary mt-2">
+        <img class="img" height="200px" th:src="@{'/images/'+${element.images.get(0).id}}"/>
+        <img class="img" height="200px" th:src="@{'/images/'+${element.images.get(1).id}}"/>
+        <img class="img" height="200px" th:src="@{'/images/'+${element.images.get(2).id}}"/><br><br>
+        <h2 th:text="${element.title}"/>
+        <p><b>Описание: </b><span th:text="${element.description}"/></p>
+        <p><b>Цена: </b><span th:text="${element.price}"/></p>
+        <p><b>Город: </b><span th:text="${element.price}"/></p>
+        <p><b>Продавец: </b><span th:text="${element.author}"/></p>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a th:href="'/products/'+${element.id} + '/edit'" class="btn btn-primary btn-sm">Редактировать</a>
+            <form th:action="'/products/' + ${element.id} + '/remove'" method="post">
+                <button class="btn btn-primary btn-sm" type="submit">Удалить</button>
+            </form>
+        </div>
+
+
+        <!--        <a th:href="'/products/'+${element.id} + '/edit'" class="btn btn-primary d-inline-flex align-items-center">Редактировать</a><br><br>-->
+        <!--        <form th:action="'/products/' + ${element.id} + '/remove'" method="post">-->
+        <!--            <button class="btn btn-primary d-inline-flex align-items-center" type="submit">Удалить</button>-->
+        <!--        </form>-->
+
+
     </div>
 </div>
 
@@ -30,3 +40,4 @@
 </body>
 
 </html>
+
