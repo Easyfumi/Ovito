@@ -13,12 +13,15 @@
 <div class="container mt-5 mb-5">
     <h1>Редактирование товара</h1>
     <div th:each="element : ${product}">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <input type="text" th:value="${element.title}" name="title" placeholder="Введите название статьи" class="form-control"><br>
             <input type="text" th:value="${element.description}" name="description" placeholder="Введите описание" class="form-control"><br>
             <input type="text" th:value="${element.price}" name="price" placeholder="Введите цену" class="form-control"><br>
             <input type="text" th:value="${element.city}" name="city" placeholder="Введите город" class="form-control"><br>
             <input type="text" th:value="${element.author}" name="author" placeholder="Введите автора" class="form-control"><br>
+            <input type="file" name="file1" placeholder="Фото 1" class="form-control"><br>
+            <input type="file" name="file2" placeholder="Фото 2" class="form-control"><br>
+            <input type="file" name="file3" placeholder="Фото 3" class="form-control"><br>
             <button type="submit" class="btn btn-success">Обновить товар</button>
         </form>
     </div>

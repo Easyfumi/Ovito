@@ -56,8 +56,10 @@ public class ProductController {
     }
 
     @PostMapping("/products/{id}/edit")
-    public String productPostUpdate(@PathVariable(value = "id") long id, @RequestParam String title, @RequestParam String description, @RequestParam String price, @RequestParam String city, @RequestParam String author, Model model) {
-        productService.productUpdate(id, title, description, price, city, author);
+    public String productPostUpdate(@PathVariable(value = "id") long id, @RequestParam String title, @RequestParam String description, @RequestParam String price,
+                                    @RequestParam String city, @RequestParam String author, @RequestParam("file1") MultipartFile file1, @RequestParam("file2") MultipartFile file2,
+                                    @RequestParam("file3") MultipartFile file3, Model model) throws IOException {
+        productService.productUpdate(id, title, description, price, city, author, file1, file2, file3);
         return "redirect:/products";
     }
 

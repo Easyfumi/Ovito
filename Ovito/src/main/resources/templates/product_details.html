@@ -16,7 +16,7 @@
         <h2 th:text="${element.title}"/>
         <p><b>Описание: </b><span th:text="${element.description}"/></p>
         <p><b>Цена: </b><span th:text="${element.price}"/></p>
-        <p><b>Город: </b><span th:text="${element.price}"/></p>
+        <p><b>Город: </b><span th:text="${element.city}"/></p>
         <p><b>Продавец: </b><span th:text="${element.author}"/></p>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -25,13 +25,6 @@
                 <button class="btn btn-primary btn-sm" type="submit">Удалить</button>
             </form>
         </div>
-
-
-        <!--        <a th:href="'/products/'+${element.id} + '/edit'" class="btn btn-primary d-inline-flex align-items-center">Редактировать</a><br><br>-->
-        <!--        <form th:action="'/products/' + ${element.id} + '/remove'" method="post">-->
-        <!--            <button class="btn btn-primary d-inline-flex align-items-center" type="submit">Удалить</button>-->
-        <!--        </form>-->
-
 
     </div>
 </div>
