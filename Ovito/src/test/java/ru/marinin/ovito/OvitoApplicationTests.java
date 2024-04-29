@@ -1,4 +1,4 @@
-package ru.marinin.Ovito;
+package ru.marinin.ovito;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
